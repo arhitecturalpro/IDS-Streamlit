@@ -5,7 +5,7 @@ import json
 import random
 import numpy as np
 import streamlit as st
-#import winsound  
+import winsound  
 import time
 import smtplib
 import imghdr
@@ -33,9 +33,9 @@ opt = {
 
 # Email configuration for Gmail
 # Replace these with your actual credentials and details.
-EMAIL_ADDRESS = os.getenv("EMAIL_USER", "jhamycageraldizo68@gmail.com")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASS", "ourg wfvf zgrt gyjx")
-RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL", "jhamycageraldizo68@gmail.com")
+EMAIL_ADDRESS = os.getenv("EMAIL_USER", "")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASS", "")
+RECIPIENT_EMAIL = os.getenv("RECIPIENT_EMAIL", "")
 SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
 SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
 EMAIL_COOLDOWN = 300  # seconds between email alerts
