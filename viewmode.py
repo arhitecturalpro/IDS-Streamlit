@@ -5,7 +5,7 @@ import json
 import random
 import numpy as np
 import streamlit as st
-import winsound  
+#import winsound  
 import time
 import smtplib
 import imghdr
