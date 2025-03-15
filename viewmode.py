@@ -5,7 +5,7 @@ import json
 import random
 import numpy as np
 import streamlit as st
-import winsound  
+import sys
 import time
 import smtplib
 import imghdr
@@ -102,6 +102,12 @@ def send_email_alert():
 # Global flag to track alarm state
 alarm_active = False
 
+# Check OS platform and import the appropriate sound library
+if sys.platform == "win32":
+    import winsound
+else:
+    from playsound import playsound
+    
 def play_alarm():
     settings = load_settings()
     alarm_sound = os.path.join(SOUND_FOLDER, settings["alarm_sound"])
