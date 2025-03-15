@@ -6,6 +6,7 @@ import random
 import numpy as np
 import streamlit as st
 import sys
+import platform
 import time
 import smtplib
 import imghdr
@@ -125,7 +126,11 @@ def play_alarm():
     winsound.PlaySound(alarm_sound, winsound.SND_FILENAME | winsound.SND_ASYNC | winsound.SND_LOOP)
 
 def stop_alarm():
-    winsound.PlaySound(None, winsound.SND_PURGE)
+    if platform.system() == "Windows":
+        import winsound
+        winsound.PlaySound(None, winsound.SND_PURGE)
+    else:
+        print("Alarm stopped (no sound support on this OS)")
 
 def view_mode():
     """Display video feed with YOLOv7 object detection and notify via email when an intruder is detected."""
