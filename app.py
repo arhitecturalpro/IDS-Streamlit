@@ -1,7 +1,5 @@
 import streamlit as st
 from navbar import show_sidebar  
-from login import login
-from signup import sign_up
 from home import home
 from detected import detected  # Assuming detected() handles image display
 from viewmode import view_mode
@@ -34,11 +32,7 @@ def main():
     page = show_sidebar()
 
     # Handle the page content based on the selected option
-    if page == "Login":
-        login()
-    elif page == "Sign Up":
-        sign_up()
-    elif page == "View Mode":
+    if page == "View Mode":
         view_mode()  # Trigger the camera view mode functionality
     elif page == "Home":
         home()  # Call the home function when "Home" is selected in the sidebar
