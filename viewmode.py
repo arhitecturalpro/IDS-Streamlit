@@ -133,7 +133,8 @@ def view_mode():
     weights, imgsz = opt['weights'], opt['img-size']
     device = select_device(opt['device'])
     half = device.type != 'cpu'
-    
+
+    print("Loading model from:", weights)
     model = attempt_load(weights, map_location=device)
     model.eval()
     stride = int(model.stride.max())
