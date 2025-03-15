@@ -9,6 +9,7 @@ import sys
 import time
 import smtplib
 import imghdr
+import urllib.request
 from email.message import EmailMessage
 from utils.general import non_max_suppression, scale_coords
 from utils.datasets import letterbox
@@ -20,10 +21,20 @@ from datetime import datetime
 # File paths and settings
 SETTINGS_FILE = "settings.json"
 SOUND_FOLDER = "alarm_sounds"
-detected_folder = r'C:\Users\USER\Documents\thesis-ids\IDS\detected_human'
+detected_folder = os.path.join(os.getcwd(), "detected_human")
+
+# Define the model URL from GitHub raw link
+model_url = "https://raw.githubusercontent.com/arhitecturalpro/IDS-Streamlit/main/bestlatest.pt"
+model_path = "bestlatest.pt"
+
+# Check if the model file exists; if not, download it
+if not os.path.exists(model_path):
+    print("Downloading model...")
+    urllib.request.urlretrieve(model_url, model_path)
+    print("Download complete!")
 
 opt = {
-    'weights': r'C:\Users\USER\Documents\thesis-ids\IDS\bestlatest.pt',
+    'weights': model_path,
     'img-size': 320,
     'conf-thres': 0.4,
     'iou-thres': 0.45,
